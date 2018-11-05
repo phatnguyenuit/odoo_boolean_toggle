@@ -1,4 +1,4 @@
-odoo.define('coop_produce.form_widgets', function (require) {
+odoo.define('odoo_boolean_toggle.form_widgets', function (require) {
 "use strict";
 var core = require('web.core');
 var common = require('web.form_common')
