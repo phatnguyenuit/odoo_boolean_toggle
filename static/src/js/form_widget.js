@@ -17,11 +17,7 @@ var ToggleSlider = FieldBoolean.extend({
             }
         }, this));
         var check_readonly = function() {
-            var isReadonly = self.get("effective_readonly");
-            self.$checkbox.prop('disabled', isReadonly);
-            if(isReadonly){
-                self.click_disabled_boolean();
-            }
+            self.$checkbox.prop('disabled', self.get("effective_readonly"));
         };
         this.on("change:effective_readonly", this, check_readonly);
         check_readonly.call(this);
@@ -33,12 +29,6 @@ var ToggleSlider = FieldBoolean.extend({
     focus: function() {
         var input = this.$checkbox && this.$checkbox[0];
         return input ? input.focus() : false;
-    },
-    click_disabled_boolean: function(){
-        var $disabled = this.$el.find('input[type=checkbox]:disabled');
-        $disabled.each(function (){
-            $(this).next('span.slider').addClass('disabled');
-        });
     }
 });
 
